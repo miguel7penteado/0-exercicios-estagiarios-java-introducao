@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<project name="Teste-Ant" default="main" basedir=".">
+
+  <!-- Declarando variaveis. -->
+  <!-- The value of a property is accessed via ${} -->
+
+  <property name="diretorio.fontes" location="src" />
+  <property name="diretorio.construcao" location="bin" />
+  <property name="dist.dir" location="dist" />
+  <property name="diretorio.documentacao" location="docs" />
+
+  <!-- Antes de comecar a construir o programa, apague diretorios de construcao, distribuicao, documentacao e seus conteudos-->
+  
+  <target name="limpar">
+    <delete dir="${diretorio.construcao}" />
+    <delete dir="${diretorio.documentacao}" />
+    <delete dir="${dist.dir}" />
+  </target>
+
+  <!-- Criando os diretorios de construcao, documentacao e distribuicao-->
+  
+  <target name="criadiretorios">
+    <mkdir dir="${diretorio.construcao}" />
+    <mkdir dir="${diretorio.documentacao}" />
+    <mkdir dir="${dist.dir}" />
+  </target>
+
+  <!-- Compile o codigo java (including the usage of library for JUnit -->
+  <target name="compilacao" depends="limpar, criadiretorios">
+    <javac fontedir="${diretorio.fontes}" destdir="${diretorio.construcao}">
+    </javac>
+
+  </target>
+
+  <!-- Criar documentacao java -->
+  <target name="documentacao" depends="compilacao">
+    <javadoc packagenames="fonte" sourcepath="${diretorio.fontes}" destdir="${diretorio.documentacao}">
+      <!-- Define which files / directory should get included, we include all -->
+       <fileset dir="${diretorio.fontes}">
+                <include name="**" />
+           </fileset>
+    </javadoc>
+  </target>
+
+  <!--Cria a biblioteca jar distribuivel  -->
+  <target name="jar" depends="compilacao">
+    <jar destfile="${dist.dir}\de.vogella.build.test.ant.jar" basedir="${diretorio.construcao}">
+      <manifest>
+        <attribute name="Main-Class" value="test.Main" />
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="main" depends="compilacao, jar, documentacao">
+    <description>Funcao ou alvo principal.</description>
+  </target>
+
+</project> 
