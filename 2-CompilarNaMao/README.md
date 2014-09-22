@@ -11,4 +11,31 @@
 
 1. 2- O código das classes JAVA.
 
+`
+package matematica.multiplicacao;
+
+public class MinhaMultiplicacao
+{
+	public int multiplica(int parcela1, int parcela2)
+	{
+		return (parcela1 * parcela2);
+	}
+}
+`
+
+`
+
+import matematica.multiplicacao.MinhaMultiplicacao;
+
+public class JuntaTudoEExecuta
+{
+	public static void main(String[] args)
+	{
+		MinhaMultiplicacao objeto1 = new MinhaMultiplicacao();
+		System.out.println("O resultado é: " + objeto1.multiplica(5, 10) );
+	}
+} 
+
+`
+
 
