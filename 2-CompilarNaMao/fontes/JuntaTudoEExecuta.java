@@ -1,6 +1,5 @@
-package meuprograma;
 
-import matematica.MinhaMultiplicacao;
+import matematica.multiplicacao.MinhaMultiplicacao;
 
 public class JuntaTudoEExecuta
 {

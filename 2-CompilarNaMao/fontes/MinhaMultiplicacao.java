@@ -1,4 +1,4 @@
-package matematica;
+package matematica.multiplicacao;
 
 public class MinhaMultiplicacao
 {
