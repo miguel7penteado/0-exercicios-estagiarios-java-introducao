@@ -11,7 +11,7 @@
 
 1. 2- O código das classes JAVA.
 
-`
+```sh
 package matematica.multiplicacao;
 
 public class MinhaMultiplicacao
@@ -21,10 +21,10 @@ public class MinhaMultiplicacao
 		return (parcela1 * parcela2);
 	}
 }
-`
+```
 
-`
 
+```sh
 import matematica.multiplicacao.MinhaMultiplicacao;
 
 public class JuntaTudoEExecuta
@@ -36,6 +36,7 @@ public class JuntaTudoEExecuta
 	}
 } 
 
-`
+```
+
 
 
