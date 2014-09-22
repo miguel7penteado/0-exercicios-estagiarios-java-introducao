@@ -11,7 +11,7 @@
 
 1. 2- O código das classes JAVA.
 
-** Arquivo MinhaMultiplicacao.java **
+**MinhaMultiplicacao.java**
 ```sh
 package matematica.multiplicacao;
 
@@ -24,7 +24,7 @@ public class MinhaMultiplicacao
 }
 ```
 
-** Arquivo JuntaTudoEExecuta.java **
+**JuntaTudoEExecuta.java**
 ```sh
 import matematica.multiplicacao.MinhaMultiplicacao;
 
