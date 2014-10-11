@@ -1,30 +1,38 @@
 <?xml version="1.0"?>
 <project name="Teste-Ant" default="main" basedir=".">
 
-  <!-- Declarando variaveis. -->
-  <!-- The value of a property is accessed via ${} -->
+	<!-- Declarando variaveis. -->
+	<!-- The value of a property is accessed via ${} -->
 
-  <property name="diretorio.fontes" location="src" />
-  <property name="diretorio.construcao" location="bin" />
-  <property name="dist.dir" location="dist" />
-  <property name="diretorio.documentacao" location="docs" />
+	<property name="diretorio.fontes" location="src" />
+	<property name="diretorio.construcao" location="bin" />
+	<property name="dist.dir" location="dist" />
+	<property name="diretorio.documentacao" location="docs" />
 
-  <!-- Antes de comecar a construir o programa, apague diretorios de construcao, distribuicao, documentacao e seus conteudos-->
+	<!-- Antes de comecar a construir o programa, apague diretorios de construcao, distribuicao, documentacao e seus conteudos-->
+
+	<target name="limpar">
+		<delete dir="${diretorio.construcao}" />
+		<delete dir="${diretorio.documentacao}" />
+		<delete dir="${dist.dir}" />
+	</target>
+
+	<!-- Criando os diretorios de construcao, documentacao e distribuicao-->
+
+	<target name="criadiretorios">
+		<mkdir dir="${diretorio.construcao}" />
+		<mkdir dir="${diretorio.documentacao}" />
+		<mkdir dir="${dist.dir}" />
+	</target>
+
+	<target name="copyfiles" depends="prepare">  
+		<filter token="DEBUG" value="false"/>  
+			<copy todir="${build.src}" filtering="true">  
+				<fileset dir="${src.dir}" includes="**/*.java,**/*.mf"/>  
+			</copy>  
+	</target>  
   
-  <target name="limpar">
-    <delete dir="${diretorio.construcao}" />
-    <delete dir="${diretorio.documentacao}" />
-    <delete dir="${dist.dir}" />
-  </target>
-
-  <!-- Criando os diretorios de construcao, documentacao e distribuicao-->
   
-  <target name="criadiretorios">
-    <mkdir dir="${diretorio.construcao}" />
-    <mkdir dir="${diretorio.documentacao}" />
-    <mkdir dir="${dist.dir}" />
-  </target>
-
   <!-- Compile o codigo java (including the usage of library for JUnit -->
   <target name="compilacao" depends="limpar, criadiretorios">
     <javac fontedir="${diretorio.fontes}" destdir="${diretorio.construcao}">
