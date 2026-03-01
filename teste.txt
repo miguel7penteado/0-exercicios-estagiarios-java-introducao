@@ -1,0 +1,7 @@
+variavel_numero = input("Digite um número: ")
+
+variavel_contador = 1
+
+while variavel_contador <= 5:
+    print(variavel_numero)
+    variavel_contador = variavel_contador + 1
